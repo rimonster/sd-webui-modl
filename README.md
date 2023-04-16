@@ -1,4 +1,4 @@
-# MoDL - Model DownLoader
+# MoDL - Model Downloader
 Stable Diffusion Web UI Extension for downloading controlnet (and potentially other model) files easily.  
 
 

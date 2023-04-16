@@ -1,6 +1,6 @@
 # MoDL - Model Downloader
 Stable Diffusion Web UI Extension for downloading controlnet (and potentially other model) files easily.  
-
+Handy for people running on new SD instances regularly, needing CN models
 
 # Change Log
 

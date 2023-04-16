@@ -1,3 +1,14 @@
+controlnet_sd15, extensions/sd-webui-controlnet/models
+control_sd15_canny, https://huggingface.co/lllyasviel/ControlNet/resolve/main/models/control_sd15_canny.pth
+control_sd15_depth, https://huggingface.co/lllyasviel/ControlNet/resolve/main/models/control_sd15_depth.pth
+control_sd15_hed, https://huggingface.co/lllyasviel/ControlNet/resolve/main/models/control_sd15_hed.pth
+control_sd15_mlsd, https://huggingface.co/lllyasviel/ControlNet/resolve/main/models/control_sd15_mlsd.pth
+control_sd15_normal, https://huggingface.co/lllyasviel/ControlNet/resolve/main/models/control_sd15_normal.pth
+control_sd15_open, https://huggingface.co/lllyasviel/ControlNet/resolve/main/models/control_sd15_open.pth
+control_sd15_scribble, https://huggingface.co/lllyasviel/ControlNet/resolve/main/models/control_sd15_scribble.pth
+control_sd15_seg, https://huggingface.co/lllyasviel/ControlNet/resolve/main/models/control_sd15_seg.pth
+
+controlnet_fp16, extensions/sd-webui-controlnet/models
 control_canny-fp16.safetensors, https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_canny-fp16.safetensors
 control_depth-fp16.safetensors, https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_depth-fp16.safetensors
 control_hed-fp16.safetensors, https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_hed-fp16.safetensors
@@ -6,3 +17,14 @@ control_normal-fp16.safetensors, https://huggingface.co/webui/ControlNet-modules
 control_openpose-fp16.safetensors, https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_open-fp16.safetensors
 control_scribble-fp16.safetensors, https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_scribble-fp16.safetensors
 control_seg-fp16.safetensors, https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_seg-fp16.safetensors
+
+painting, models/Stable-diffusion
+sd-1-5-inpainting.ckpt, https://huggingface.co/runwayml/stable-diffusion-inpainting/resolve/main/sd-v1-5-inpainting.ckpt
+instruct-pix2pix-00-22000.safetensors, https://huggingface.co/timbrooks/instruct-pix2pix/resolve/main/instruct-pix2pix-00-22000.safetensors
+
+civitai, models/Stable-diffusion
+photogen, https://civitai.com/api/download/models/4048
+deliberate, https://civitai.com/api/download/models/15236
+
+segment-anything, extensions/anything/model/sam
+sam_vit_h_4b8939.pth, https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8939.pth

@@ -81,7 +81,7 @@ def on_ui_tabs():
         progress(0, desc="Starting...")
         for model in selected_models:
             filename = os.path.basename(model["url"])
-            path = os.path.join(model["path"], filename)
+            path = os.path.join("extensions", "sd-webui-controlnet", "models", filename)
             os.makedirs(os.path.dirname(path), exist_ok=True)
             response = requests.get(model["url"], stream=True)
             with open(path,"wb") as f:
@@ -114,7 +114,15 @@ def on_ui_tabs():
             try:
                 fl = urllib.request.urlopen(req)
             except:
-                continue
+                if not model_url.startswith("http"):
+                    model_url = "http://" + model_url
+                    req = urllib.request.Request(model_url.strip(), method='HEAD')
+                    try:
+                        fl = urllib.request.urlopen(req)
+                    except:
+                        continue
+                else:
+                    continue
             if fl.status == 200:
                 size = int(fl.headers['Content-Length'])
                 models.append({"section": current_section[0], "name": model_name.strip(), "url": model_url.strip(), "size": size, "path": model_path})
@@ -128,9 +136,9 @@ def on_ui_tabs():
             with gr.Box(elem_classes="modl_box"):
                 with gr.Column():
                     gr.Markdown("### Choose models to download")
-                    sections = list(set([model["section"] for model in models]))
+                    sections = sorted(list(set([(model["path"], model["section"]) for model in models])), key=lambda x: models.index(next(model for model in models if model["section"] == x[1])))
                     checkboxes = {}
-                    for section in sections:
+                    for path, section in sections:
                         section_models = [model for model in models if model["section"] == section]
                         checkboxes[section] = gr.Dropdown(multiselect=True, label=section, choices=[model["name"] for model in section_models], value=[])
 

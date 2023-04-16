@@ -4,7 +4,7 @@ Stable Diffusion Web UI Extension for downloading controlnet (and potentially ot
 # Change Log
 
 ## v0.1
-* hello modl: offering basic controlnet models from hugginface
+* hello modl: offering basic fp16 controlnet models from hugginface
 
 ## TODO
 * Check if models already downloaded and then disable in choice list

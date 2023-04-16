@@ -1,5 +1,6 @@
 import gradio as gr
 import os
+import sys
 import shutil
 import requests
 import modules
@@ -27,16 +28,15 @@ def on_ui_tabs():
 
 
     def get_models():
-        repo_url = "http://fanvac.com/models.txt"
+        # Load the models list from the repo
 
-        # Download the models list from the repo
-        response = requests.get(repo_url)
-        if response.status_code != 200:
-            return None
+        rep_file = os.path.join("extensions", "sd-webui-modl", "models.txt")
+        with open(rep_file, "r") as f:
+            modelist = f.read()
 
         # Parse the models list
         models = []
-        for line in response.text.split("\n"):
+        for line in modelist.split("\n"):
             if line.strip() == "":
                 continue
             model_name, model_url = line.strip().split(",")

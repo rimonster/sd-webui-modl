@@ -8,6 +8,6 @@ Stable Diffusion Web UI Extension for downloading controlnet (and potentially ot
 
 ## TODO
 * Check if models already downloaded and then disable in choice list
-* Warn how much free space available and how much the download will take
-* Show % of DL for each file and for all process
+* Warn how much free space available and how long the download will take
+* Show % of DL for each file and for total download
 * Add shell to gdown for personal models

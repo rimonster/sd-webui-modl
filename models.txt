@@ -18,22 +18,6 @@ control_openpose-fp16.safetensors, https://huggingface.co/webui/ControlNet-modul
 control_scribble-fp16.safetensors, https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_scribble-fp16.safetensors
 control_seg-fp16.safetensors, https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_seg-fp16.safetensors
 
-control_v11p_sd15, extensions/sd-webui-controlnet/models
-control_v11p_sd15_seg, https://huggingface.co/lllyasviel/control_v11p_sd15_seg
-control_v11p_sd15_normalbae, https://huggingface.co/lllyasviel/control_v11p_sd15_normalbae
-control_v11p_sd15_mlsd, https://huggingface.co/lllyasviel/control_v11p_sd15_mlsd
-control_v11p_sd15_depth, https://huggingface.co/lllyasviel/control_v11p_sd15_depth
-control_v11p_sd15_canny, https://huggingface.co/lllyasviel/control_v11p_sd15_canny
-control_v11p_sd15_canny, https://huggingface.co/lllyasviel/control_v11p_sd15_canny
-control_v11p_sd15s2_lineart_anime, https://huggingface.co/lllyasviel/control_v11p_sd15s2_lineart_anime
-control_v11p_sd15_lineart, https://huggingface.co/lllyasviel/control_v11p_sd15_lineart
-control_v11e_sd15_shuffle, https://huggingface.co/lllyasviel/control_v11e_sd15_shuffle
-control_v11p_sd15_openpose, https://huggingface.co/lllyasviel/control_v11p_sd15_openpose
-control_v11p_sd15_inpaint, https://huggingface.co/lllyasviel/control_v11p_sd15_inpaint
-control_v11u_sd15_tile, https://huggingface.co/lllyasviel/control_v11u_sd15_tile
-control_v11e_sd15_ip2p, https://huggingface.co/lllyasviel/control_v11e_sd15_ip2p
-control_v11p_sd15_scribble, https://huggingface.co/lllyasviel/control_v11p_sd15_scribble
-
 painting, models/Stable-diffusion
 sd-1-5-inpainting.ckpt, https://huggingface.co/runwayml/stable-diffusion-inpainting/resolve/main/sd-v1-5-inpainting.ckpt
 instruct-pix2pix-00-22000.safetensors, https://huggingface.co/timbrooks/instruct-pix2pix/resolve/main/instruct-pix2pix-00-22000.safetensors

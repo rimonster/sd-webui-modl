@@ -1,6 +1,3 @@
-### model section title in the format name, local download path
-### model file in the format name, remote download url
-
 controlnet_sd15, extensions/sd-webui-controlnet/models
 control_sd15_canny, https://huggingface.co/lllyasviel/ControlNet/resolve/main/models/control_sd15_canny.pth
 control_sd15_depth, https://huggingface.co/lllyasviel/ControlNet/resolve/main/models/control_sd15_depth.pth

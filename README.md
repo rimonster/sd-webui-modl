@@ -4,7 +4,7 @@ Stable Diffusion Web UI Extension for easily downloading controlnet and other mo
 # Change Log
 
 ## v0.2
-* download controlnet sd15 and fp16, pix2pix and inpainting models
+* download controlnet sd15 and fp16, pix2pix, segment anything and inpainting models
 
 ## v0.1
 * hello modl: offering basic fp16 controlnet models from hugginface

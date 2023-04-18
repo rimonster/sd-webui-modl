@@ -1,5 +1,5 @@
 # MoDL - Model Downloader
-Stable Diffusion Web UI Extension for easily downloading controlnet and other model files.  
+Stable Diffusion Web UI Extension for easily downloading controlnet, instruct pix2pix, SAM and other model files.  
 
 ## Works with these extensions:
 * https://github.com/Mikubill/sd-webui-controlnet

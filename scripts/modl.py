@@ -11,6 +11,15 @@ from modules import script_callbacks
 def on_ui_tabs():
     
 
+    def format_bytes(size):
+        # 2**10 = 1024
+        power = 2**10
+        n = 0
+        power_labels = {0 : ' bytes', 1: 'KB', 2: 'MB', 3: 'GB', 4: 'TB'}
+        while size > power:
+            size /= power
+            n += 1
+        return str (round(size,2)) + power_labels[n]
     def copyfileobj(fsrc, fdst, callback, length=0):
         try:
             # check for optimisation opportunity
@@ -117,8 +126,30 @@ def on_ui_tabs():
                 continue
             if fl.status == 200:
                 size = int(fl.headers['Content-Length'])
-                models.append({"section": current_section[0], "name": model_name.strip(), "url": model_url.strip(), "size": size, "path": model_path})
+                name = model_name.strip() + " (" + format_bytes(size) + ")"
+                models.append({"section": current_section[0], "name": name, "url": model_url.strip(), "size": size, "path": model_path})
         return models
+
+    def update_sizes_table(*selected_models):
+        sizes_data = []
+        total_size = 0
+        for i, section in enumerate(sections):
+            section_models = [model for model in models if model["section"] == section]
+            if i < len(selected_models):
+                for selected_model in selected_models[i]:
+                    model_dict = next(model for model in section_models if model["name"] == selected_model)
+                    sizes_data.append([model_dict["name"], format_bytes(model_dict["size"])])
+                    total_size += model_dict["size"]
+
+        available_space = shutil.disk_usage(".").free
+        available_after_downloads = available_space - total_size
+
+        sizes_data.append(["Total", format_bytes(total_size)])
+        sizes_data.append(["Available Disk Space", format_bytes(available_space)])
+        sizes_data.append(["Available After Downloads", format_bytes(available_after_downloads)])
+
+        return sizes_data
+
 
     models = get_models()
     if models is None:
@@ -129,10 +160,12 @@ def on_ui_tabs():
                 with gr.Column():
                     gr.Markdown("### Choose models to download")
                     sections = list(set([model["section"] for model in models]))
+                    sizes_table = gr.Dataframe(headers=["Model", "Size"], datatype="str", type="array", col_count=2)
                     checkboxes = {}
                     for section in sections:
                         section_models = [model for model in models if model["section"] == section]
                         checkboxes[section] = gr.Dropdown(multiselect=True, label=section, choices=[model["name"] for model in section_models], value=[])
+                        checkboxes[section].change(update_sizes_table, inputs=list(checkboxes.values()), outputs=[sizes_table])
 
                     download_button = gr.Button(value="Download")
                     output_text = gr.Textbox(label="Result")
@@ -144,6 +177,7 @@ def on_ui_tabs():
                             for selected_model in selected_models[i]:
                                 selected_model_dicts.append(next(model for model in section_models if model["name"] == selected_model))
                         result = download_models(selected_model_dicts)
+                        return result
 
                     download_button.click(process_download, inputs=list(checkboxes.values()), outputs=[output_text])
 

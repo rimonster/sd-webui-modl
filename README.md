@@ -8,6 +8,9 @@ Stable Diffusion Web UI Extension for easily downloading controlnet and other mo
 
 # Change Log
 
+## v0.5
+* Using urlretrieve now. How do I create a decent gradio progress bar for the downloads?
+
 ## v0.4
 * Display of model files with sizes
 * total file size of models selected and free disk space available

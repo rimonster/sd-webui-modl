@@ -1,8 +1,8 @@
 # MoDL - Model Downloader
 Stable Diffusion Web UI Extension for easily downloading controlnet, instruct pix2pix, SAM and other model files.  
 
-1. Install from url: https://github.com/rimonster/sd-webui-modl
-2. Choose MoDL tab
+1. Extensions - Install from url: https://github.com/rimonster/sd-webui-modl
+2. Click MoDL tab
 3. Select models
 4. Click download 
 

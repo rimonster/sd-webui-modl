@@ -32,4 +32,5 @@ Stable Diffusion Web UI Extension for easily downloading controlnet, instruct pi
 ## TODO
 * Check if models already downloaded and then disable in choice list
 * Show % of DL for each file and for total download with ETA
-* Add gdrivbe support for personal models
+* Add gdrive support for personal models
+* add remove/merge models features for a full model manager 

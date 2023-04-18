@@ -21,7 +21,7 @@ Stable Diffusion Web UI Extension for easily downloading controlnet, instruct pi
 * total file size of models selected and free disk space available
 
 ## v0.3
-* Display file sizes and free space on disk befoe selection
+* Display file sizes and free space on disk before download 
 
 ## v0.2
 * download controlnet sd15 and fp16, pix2pix, segment anything and inpainting models

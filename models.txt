@@ -36,18 +36,3 @@ t2iadapter_openpose-fp16.safetensors, https://huggingface.co/webui/ControlNet-mo
 t2iadapter_seg-fp16.safetensors, https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_seg-fp16.safetensors
 t2iadapter_sketch-fp16.safetensors, https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_style-fp16.safetensors
 2iadapter_style-fp16.safetensors, https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_style-fp16.safetensors
-
-control_v11e_sd15, extensions/sd-webui-controlnet/models
-control_v11e_sd15_canny, https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11e_sd15_canny.pth
-control_v11e_sd15_mlsd, https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11e_sd15_mlsd.pth
-control_v11e_sd15_depth, https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11e_sd15_depth.pth
-control_v11e_sd15_normalbae, https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11e_sd15_normalbae
-control_v11e_sd15_seg, https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11e_sd15_seg.pth
-control_v11e_sd15_inpaint, https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11e_sd15_inpaint.pth
-control_v11e_sd15s2_lineart_anime, https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11e_sd15_lineart_anime.pth
-control_v11e_sd15_openpose, https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11e_sd15_openpose.pth
-control_v11e_sd15_scribble, https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11e_sd15_scribble.pth
-control_v11e_sd15_softedge, https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11e_sd15_softedge.pth
-control_v11e_sd15_shuffle, https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11e_sd15_shuffle.pth
-control_v11e_sd15_ip2p, https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11e_sd15_ip2p.pth
-control_v11e_sd15_tile, https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11e_sd15_tile.pth

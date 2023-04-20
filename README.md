@@ -6,6 +6,8 @@ Stable Diffusion Web UI Extension for easily downloading controlnet, instruct pi
 3. Select models
 4. Click download 
 
+* Now includes links to Controlnet v1.1 models
+
 ## Works with these extensions:
 * https://github.com/Mikubill/sd-webui-controlnet
 * https://github.com/continue-revolution/sd-webui-segment-anything

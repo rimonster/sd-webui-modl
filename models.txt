@@ -1,3 +1,19 @@
+control_v11e_sd15, extensions/sd-webui-controlnet/models
+control_v11e_sd15_ip2p.pth, https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11e_sd15_ip2p.pth
+control_v11e_sd15_shuffle.pth, https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11e_sd15_shuffle.pth
+control_v11e_sd15_depth.pth, https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11f1p_sd15_depth.pth
+control_v11e_sd15_canny.pth, https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15_canny.pth
+control_v11e_sd15_inpaint.pth, https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15_inpaint.pth
+control_v11e_sd15_lineart.pth, https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15_lineart.pth
+control_v11e_sd15_mlsd.pth, https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15_mlsd.pth
+control_v11e_sd15_normalbae.pth, https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15_normalbae.pth
+control_v11e_sd15_openpose.pth, https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15_openpose.pth
+control_v11e_sd15_scribble.pth, https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15_scribble.pth
+control_v11e_sd15_seg.pth, https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15_seg.pth
+control_v11e_sd15_softedge.pth, https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15_softedge.pth
+control_v11e_sd15_lineart_anime.pth, https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15s2_lineart_anime.pth
+control_v11e_sd15_tile.pth, https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11u_sd15_tile.pth
+
 controlnet_sd15, extensions/sd-webui-controlnet/models
 control_sd15_canny, https://huggingface.co/lllyasviel/ControlNet/resolve/main/models/control_sd15_canny.pth
 control_sd15_depth, https://huggingface.co/lllyasviel/ControlNet/resolve/main/models/control_sd15_depth.pth
@@ -36,19 +52,3 @@ t2iadapter_openpose-fp16.safetensors, https://huggingface.co/webui/ControlNet-mo
 t2iadapter_seg-fp16.safetensors, https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_seg-fp16.safetensors
 t2iadapter_sketch-fp16.safetensors, https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_style-fp16.safetensors
 2iadapter_style-fp16.safetensors, https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_style-fp16.safetensors
-
-control_v11e_sd15, extensions/sd-webui-controlnet/models
-control_v11e_sd15_ip2p.pth, https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11e_sd15_ip2p.pth
-control_v11e_sd15_shuffle.pth, https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11e_sd15_shuffle.pth
-control_v11e_sd15_depth.pth, https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11f1p_sd15_depth.pth
-control_v11e_sd15_canny.pth, https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15_canny.pth
-control_v11e_sd15_inpaint.pth, https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15_inpaint.pth
-control_v11e_sd15_lineart.pth, https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15_lineart.pth
-control_v11e_sd15_mlsd.pth, https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15_mlsd.pth
-control_v11e_sd15_normalbae.pth, https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15_normalbae.pth
-control_v11e_sd15_openpose.pth, https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15_openpose.pth
-control_v11e_sd15_scribble.pth, https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15_scribble.pth
-control_v11e_sd15_seg.pth, https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15_seg.pth
-control_v11e_sd15_softedge.pth, https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15_softedge.pth
-control_v11e_sd15_lineart_anime.pth, https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15s2_lineart_anime.pth
-control_v11e_sd15_tile.pth, https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11u_sd15_tile.pth

@@ -8,6 +8,7 @@ import urllib
 import math
 import modules
 from modules import script_callbacks
+from tqdm import tqdm
 def on_ui_tabs():
     
 
@@ -21,10 +22,10 @@ def on_ui_tabs():
             n += 1
         return str (round(size,2)) + power_labels[n]
             
-    def download_models(selected_models):
+    def download_models(selected_models, progress=gr.Progress()):
         global start_time
         start_time = time.time()
-        
+
         # Check if there is enough disk space
         total_size = sum(model["size"] for model in selected_models)
         available_space = shutil.disk_usage(".").free
@@ -32,17 +33,19 @@ def on_ui_tabs():
             return f"Not enough disk space. Required: {total_size/1024/1024:.2f} MB, Available: {available_space/1024/1024:.2f} MB"
 
         # Download the selected models
+        progress = tqdm(total=total_size)
         for model in selected_models:
             filename = os.path.basename(model["url"])
             path = os.path.join(model["path"], filename)
             os.makedirs(os.path.dirname(path), exist_ok=True)
-#            response = requests.get(model["url"], stream=True)
-#            with open(path, "wb") as f:
-            urllib.request.urlretrieve(model["url"], path)
-##                copyfileobj(response.raw, f, show_progress)
-#            del response
-            return "All models downloaded successfully"
-        
+            response = requests.get(model["url"], stream=True)
+            with open(path, "wb") as f:
+                for chunk in response.iter_content(chunk_size=1024):
+                    f.write(chunk)
+                    progress.update(len(chunk))
+            del response
+        return "All models downloaded successfully"
+
     def get_models():
         # Load the models list from the repo
         rep_file = os.path.join("extensions", "sd-webui-modl", "models.txt")
@@ -127,12 +130,14 @@ def on_ui_tabs():
 #                    preloaded_models_table.value = preloaded_models
 
                     def process_download(*selected_models):
+                        progress = gr.Progress()
                         selected_model_dicts = []
                         for i, section in enumerate(sections):
                             section_models = [model for model in models if model["section"] == section]
                             for selected_model in selected_models[i]:
                                 selected_model_dicts.append(next(model for model in section_models if model["name"] == selected_model))
-                        result = download_models(selected_model_dicts)
+                        result = download_models(selected_model_dicts, progress=progress)
+                        progress.close()
                         return result
 
                     download_button.click(process_download, inputs=list(checkboxes.values()), outputs=[output_text])

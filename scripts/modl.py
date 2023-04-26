@@ -137,7 +137,7 @@ def on_ui_tabs():
                             for selected_model in selected_models[i]:
                                 selected_model_dicts.append(next(model for model in section_models if model["name"] == selected_model))
                         result = download_models(selected_model_dicts, progress=progress)
-                        progress.close()
+#                        progress.close()
                         return result
 
                     download_button.click(process_download, inputs=list(checkboxes.values()), outputs=[output_text])

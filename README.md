@@ -8,7 +8,7 @@ Stable Diffusion Web UI Extension for easily downloading controlnet, instruct pi
 
 * Now includes links to Controlnet v1.1 models
 
-## Supports with these extensions:
+## Supports the following extensions:
 * https://github.com/Mikubill/sd-webui-controlnet
 * https://github.com/continue-revolution/sd-webui-segment-anything
 * Instruct pix2pix (built into Automatic1111 img2img): https://www.timothybrooks.com/instruct-pix2pix/

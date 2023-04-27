@@ -114,19 +114,19 @@ def on_ui_tabs():
         with gr.Blocks(analytics_enabled=False) as modl:
             with gr.Box(elem_classes="modl_box"):
                 with gr.Column():
-
+                    sizes_table = gr.Dataframe(headers=["Model", "Size"], datatype="str", type="array", col_count=2)
+                with gr.Column():
                     gr.Markdown("### Choose models to download")
-#                    sections = list(set([model["section"] for model in models]))
                     sections = []
                     for model in models:
                         if model["section"] not in sections:
                             sections.append(model["section"])
-                    sizes_table = gr.Dataframe(headers=["Model", "Size"], datatype="str", type="array", col_count=2)
                     checkboxes = {}
                     for section in sections:
                         section_models = [model for model in models if model["section"] == section]
-                        checkboxes[section] = gr.Dropdown(multiselect=True, label=section, choices=[model["name"] for model in section_models], value=[])
-                        checkboxes[section].change(update_sizes_table, inputs=list(checkboxes.values()), outputs=[sizes_table])
+                        with gr.Row():
+                            checkboxes[section] = gr.CheckboxGroup(choices=[model["name"] for model in section_models], label=section)
+                            checkboxes[section].change(update_sizes_table, inputs=list(checkboxes.values()), outputs=[sizes_table])
 
                     download_button = gr.Button(value="Download")
                     output_text = gr.Textbox(label="Result")

@@ -116,7 +116,11 @@ def on_ui_tabs():
                 with gr.Column():
 
                     gr.Markdown("### Choose models to download")
-                    sections = list(set([model["section"] for model in models]))
+#                    sections = list(set([model["section"] for model in models]))
+                    sections = []
+                    for model in models:
+                        if model["section"] not in sections:
+                            sections.append(model["section"])
                     sizes_table = gr.Dataframe(headers=["Model", "Size"], datatype="str", type="array", col_count=2)
                     checkboxes = {}
                     for section in sections:

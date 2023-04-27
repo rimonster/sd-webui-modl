@@ -15,6 +15,11 @@ Stable Diffusion Web UI Extension for easily downloading controlnet, instruct pi
 
 # Change Log
 
+## v0.6
+* Better UI
+* Shorter models.txt
+* Well sorted sections
+
 ## v0.5
 * Using urlretrieve now. How do I create a decent gradio progress bar for the downloads?
 
@@ -33,6 +38,7 @@ Stable Diffusion Web UI Extension for easily downloading controlnet, instruct pi
 
 ## TODO
 * Check if models already downloaded and then disable in choice list
-* Show % of DL for each file and for total download with ETA
+* Show % of DL for each file and for total download with ETA (happens in terminal not in gradio GUI)
+* Add git repos as full sections in models.txt so they refresh with new models
 * Add gdrive support for personal models
 * add remove/merge models features for a full model manager 

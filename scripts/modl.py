@@ -3,12 +3,12 @@ import os
 import os.path
 import time
 import shutil
-import requests
 import urllib
+import torch
+import torch.hub
 import math
 import modules
 from modules import script_callbacks
-from tqdm import tqdm
 def on_ui_tabs():
     
 
@@ -21,11 +21,8 @@ def on_ui_tabs():
             size /= power
             n += 1
         return str (round(size,2)) + power_labels[n]
-            
-    def download_models(selected_models, progress=gr.Progress()):
-        global start_time
-        start_time = time.time()
 
+    def download_models(selected_models, progress=gr.Progress()):
         # Check if there is enough disk space
         total_size = sum(model["size"] for model in selected_models)
         available_space = shutil.disk_usage(".").free
@@ -33,17 +30,11 @@ def on_ui_tabs():
             return f"Not enough disk space. Required: {total_size/1024/1024:.2f} MB, Available: {available_space/1024/1024:.2f} MB"
 
         # Download the selected models
-        progress = tqdm(total=total_size)
         for model in selected_models:
             filename = os.path.basename(model["url"])
             path = os.path.join(model["path"], filename)
             os.makedirs(os.path.dirname(path), exist_ok=True)
-            response = requests.get(model["url"], stream=True)
-            with open(path, "wb") as f:
-                for chunk in response.iter_content(chunk_size=1024):
-                    f.write(chunk)
-                    progress.update(len(chunk))
-            del response
+            torch.hub.download_url_to_file(model["url"], path, progress=True)
         return "All models downloaded successfully"
 
     def get_models():
@@ -130,8 +121,7 @@ def on_ui_tabs():
 #                    preloaded_models_table = gr.Dataframe(headers=["Downloaded Models", "Size"], datatype="str", type="array", col_count=2)
 #                    preloaded_models_table.value = preloaded_models
 
-                    def process_download(*selected_models):
-                        progress = gr.Progress()
+                    def process_download(*selected_models, progress=gr.Progress()):
                         selected_model_dicts = []
                         for i, section in enumerate(sections):
                             section_models = [model for model in models if model["section"] == section]

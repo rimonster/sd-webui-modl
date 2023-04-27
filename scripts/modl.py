@@ -86,13 +86,12 @@ def on_ui_tabs():
     def update_sizes_table(*selected_models):
         sizes_data = []
         total_size = 0
-        for i, section in enumerate(sections):
-            section_models = [model for model in models if model["section"] == section]
-            if i < len(selected_models):
-                for selected_model in selected_models[i]:
-                    model_dict = next(model for model in section_models if model["name"] == selected_model)
-                    sizes_data.append([model_dict["name"], format_bytes(model_dict["size"])])
-                    total_size += model_dict["size"]
+        selected_models_flat = [model for sublist in selected_models for model in sublist]
+
+        for model_name in selected_models_flat:
+            model_dict = next(model for model in models if model["name"] == model_name)
+            sizes_data.append([model_dict["name"], format_bytes(model_dict["size"])])
+            total_size += model_dict["size"]
 
         available_space = shutil.disk_usage(".").free
         available_after_downloads = available_space - total_size
@@ -102,8 +101,6 @@ def on_ui_tabs():
         sizes_data.append(["Available After Downloads", format_bytes(available_after_downloads)])
 
         return sizes_data
-
-
 
     models_and_preloaded = get_models()
     models = models_and_preloaded[0]

@@ -15,7 +15,7 @@ Stable Diffusion Web UI Extension for easily downloading controlnet, instruct pi
 
 # What? Why?
 Because many extensions like controlnet and segment anything and others are relying on you to transfer heavy model files from specific urls to specific local paths. For some people who work on many/temporary machines of various OS it's handy to have a tool to download their favorite models for controlnet etc painlessly for every new installation.
-you can clone and then use your own models.txt for your favorite models and even include your private models for easy access.
+You can clone and then use your own models.txt for your favorite models and then also include your private models for easy access.
 
 
 # Change Log

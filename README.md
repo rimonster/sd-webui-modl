@@ -9,9 +9,9 @@ Stable Diffusion Web UI Extension for easily downloading controlnet, instruct pi
 * Now includes links to Controlnet v1.1 models
 
 ## Supports the following extensions:
-* Mikubill's controlnet: https://github.com/Mikubill/sd-webui-controlnet
-* continue revolution's segment anything: https://github.com/continue-revolution/sd-webui-segment-anything
-* timothy brooks' Instruct pix2pix (automatically enabled in Automatic1111's img2img tab when you select this model): https://www.timothybrooks.com/instruct-pix2pix/
+* Mikubill / Controlnet: https://github.com/Mikubill/sd-webui-controlnet
+* Continue revolution / Segment anything: https://github.com/continue-revolution/sd-webui-segment-anything
+* Timothy Brooks / Instruct pix2pix (automatically enabled in Automatic1111's img2img tab when you select this model): https://www.timothybrooks.com/instruct-pix2pix/
 
 # What? Why?
 Because many extensions like controlnet and segment anything and others are relying on you to transfer heavy model files from specific urls to specific local paths. For some people who work on many/temporary machines of various OS it's handy to have a tool to download their favorite models for controlnet etc painlessly for every new installation.

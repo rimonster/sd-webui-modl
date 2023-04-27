@@ -14,6 +14,16 @@ control_v11e_sd15_softedge.pth, https://huggingface.co/lllyasviel/ControlNet-v1-
 control_v11e_sd15_lineart_anime.pth, https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15s2_lineart_anime.pth
 control_v11e_sd15_tile.pth, https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11u_sd15_tile.pth
 
+controlnet_fp16, extensions/sd-webui-controlnet/models
+control_canny-fp16.safetensors, https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_canny-fp16.safetensors
+control_depth-fp16.safetensors, https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_depth-fp16.safetensors
+control_hed-fp16.safetensors, https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_hed-fp16.safetensors
+control_mlsd-fp16.safetensors, https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_mlsd-fp16.safetensors
+control_normal-fp16.safetensors, https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_normal-fp16.safetensors
+control_openpose-fp16.safetensors, https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_open-fp16.safetensors
+control_scribble-fp16.safetensors, https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_scribble-fp16.safetensors
+control_seg-fp16.safetensors, https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_seg-fp16.safetensors
+
 painting, models/Stable-diffusion
 sd-1-5-inpainting.ckpt, https://huggingface.co/runwayml/stable-diffusion-inpainting/resolve/main/sd-v1-5-inpainting.ckpt
 instruct-pix2pix-00-22000.safetensors, https://huggingface.co/timbrooks/instruct-pix2pix/resolve/main/instruct-pix2pix-00-22000.safetensors
@@ -22,4 +32,3 @@ segment-anything, extensions/sd-webui-segment-anything/models/sam
 sam_vit_h_4b8939.pth, https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8939.pth
 am_vit_l_0b3195.pth, https://dl.fbaipublicfiles.com/segment_anything/sam_vit_l_0b3195.pth
 sam_vit_b_01ec64.pth, https://dl.fbaipublicfiles.com/segment_anything/sam_vit_b_01ec64.pth
-

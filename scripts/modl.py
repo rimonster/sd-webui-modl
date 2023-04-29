@@ -3,15 +3,17 @@ import os
 import os.path
 import time
 import shutil
+import requests
 import urllib
 import torch
-import torch.hub
+import tempfile
 import math
 import modules
 from modules import script_callbacks
+from tqdm import tqdm
+download_chunk_size = 8192
+user_agent = 'MoDL:Automatic1111'
 def on_ui_tabs():
-    
-
     def format_bytes(size):
         # 2**10 = 1024
         power = 2**10
@@ -21,9 +23,45 @@ def on_ui_tabs():
             size /= power
             n += 1
         return str (round(size,2)) + power_labels[n]
+    def log(message):
+        print(f'MoDL: {message}')
 
-    def download_models(selected_models, progress=gr.Progress()):
+    def download_file(url, dest, progress=gr.Progress(track_tqdm=True)):
+        if os.path.exists(dest):
+            log(f'File already exists: {dest}')
+
+        log(f'Downloading: "{url}" to {dest}\n')
+
+        response = requests.get(url, stream=True, headers={"User-Agent": user_agent})
+        total = int(response.headers.get('content-length', 0))
+        start_time = time.time()
+
+        dest = os.path.expanduser(dest)
+        dst_dir = os.path.dirname(dest)
+        f = tempfile.NamedTemporaryFile(delete=False, dir=dst_dir)
+
+        try:
+            current = 0
+            with tqdm(total=total, unit='B', unit_scale=True, unit_divisor=1024) as bar:
+                for data in response.iter_content(chunk_size=download_chunk_size):
+                    current += len(data)
+                    pos = f.write(data)
+                    bar.update(pos)
+                    if progress is not None:
+                        progress.update(current)
+            f.close()
+            shutil.move(f.name, dest)
+        except OSError as e:
+            print(f"Could not write the preview file to {dst_dir}")
+            print(e)
+        finally:
+            f.close()
+            if os.path.exists(f.name):
+                os.remove(f.name)
+
+    def download_models(selected_models, progress=gr.Progress(track_tqdm=True)):
         # Check if there is enough disk space
+        start_time = time.time()
         total_size = sum(model["size"] for model in selected_models)
         available_space = shutil.disk_usage(".").free
         if total_size > available_space:
@@ -34,8 +72,9 @@ def on_ui_tabs():
             filename = os.path.basename(model["url"])
             path = os.path.join(model["path"], filename)
             os.makedirs(os.path.dirname(path), exist_ok=True)
-            torch.hub.download_url_to_file(model["url"], path, progress=True)
-        return "All models downloaded successfully"
+#            torch.hub.download_url_to_file(model["url"], path, progress=True)
+            download_file(model["url"], path, progress)
+        return "Finished downloading models in " + time.time() - start_time + " seconds"
 
     def get_models():
         # Load the models list from the repo
@@ -121,17 +160,16 @@ def on_ui_tabs():
 #                    preloaded_models_table = gr.Dataframe(headers=["Downloaded Models", "Size"], datatype="str", type="array", col_count=2)
 #                    preloaded_models_table.value = preloaded_models
 
-                    def process_download(*selected_models, progress=gr.Progress()):
+                    def process_download(*selected_models, progress=gr.Progress(track_tqdm=True)):
                         selected_model_dicts = []
                         for i, section in enumerate(sections):
                             section_models = [model for model in models if model["section"] == section]
                             for selected_model in selected_models[i]:
                                 selected_model_dicts.append(next(model for model in section_models if model["name"] == selected_model))
-                        result = download_models(selected_model_dicts, progress=progress)
+                        result = download_models(selected_model_dicts, progress)
 #                        progress.close()
                         return result
-
-                    download_button.click(process_download, inputs=list(checkboxes.values()), outputs=[output_text])
+                    download_button.click(process_download, inputs=list(checkboxes.values()), outputs=output_text)
 
 
     return (modl, "MoDL", "modl"),
